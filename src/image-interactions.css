@@ -1,0 +1,34 @@
+/* Keep exposure changes subtle and independent of cover parallax transforms. */
+.hero-art > img,
+.chapter-card .card-art,
+.editorial-artwork .artwork-frame img,
+.source-image-button img,
+.source-viewer-image {
+  filter: brightness(1);
+  transition: filter 240ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-art:hover > img,
+  .chapter-card:hover .card-art,
+  .editorial-artwork:hover .artwork-frame img,
+  .source-figure:hover .source-image-button img,
+  .source-viewer-image:hover {
+    filter: brightness(1.08);
+  }
+}
+
+.chapter-card:focus-visible .card-art,
+.source-image-button:focus-visible img {
+  filter: brightness(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art > img,
+  .chapter-card .card-art,
+  .editorial-artwork .artwork-frame img,
+  .source-image-button img,
+  .source-viewer-image {
+    transition: none;
+  }
+}

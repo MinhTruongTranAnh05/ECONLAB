@@ -51,6 +51,12 @@ export const sourceImages = {
     description: 'Quan sát những hình ảnh về học tập và kỹ nghệ trong cùng một bố cục. Chưa xác nhận tên tác phẩm hoặc tác giả.',
     context: 'Tri thức & kỹ nghệ', width: 836, height: 521,
   },
+  'factory-belting': {
+    title: 'Dây truyền động trong xưởng máy',
+    alt: 'Ảnh màu về người lao động vận hành máy móc trong một xưởng với nhiều dây truyền động treo phía trên; bên dưới có dòng chữ A Forest of Belting.',
+    description: 'Quan sát hệ thống máy móc và dây truyền động trong không gian lao động. Giữ nguyên khung ảnh và dòng chữ “A Forest of Belting” của bản cung cấp.',
+    context: 'Máy móc & tổ chức lao động', width: 612, height: 470,
+  },
 } as const;
 
 export type SourceImageKey = keyof typeof sourceImages;

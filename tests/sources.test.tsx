@@ -3,10 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { SourceGallery, SourcesSection } from '../src/SourceGallery';
 
 describe('User-provided source images', () => {
-  it('shows eight unique images with source captions', () => {
+  it('shows nine unique images with source captions', () => {
     render(<SourcesSection/>);
-    expect(screen.getAllByRole('button', { name: /^Phóng to:/ })).toHaveLength(8);
-    expect(screen.getAllByText('Ảnh do người học cung cấp')).toHaveLength(8);
+    expect(screen.getAllByRole('button', { name: /^Phóng to:/ })).toHaveLength(9);
+    expect(screen.getAllByText('Ảnh do người học cung cấp')).toHaveLength(9);
+    expect(screen.getByRole('button', { name: 'Phóng to: Dây truyền động trong xưởng máy' })).toBeTruthy();
     for (const image of screen.getAllByRole('img')) {
       expect(image.getAttribute('alt')).toBeTruthy();
       expect(image.getAttribute('loading')).toBe('lazy');

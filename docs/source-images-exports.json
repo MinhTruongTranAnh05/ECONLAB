@@ -94,5 +94,17 @@
         "width":  480,
         "height":  397,
         "bytes":  100143
+    },
+    {
+        "file":  "public/sources/factory-belting.jpg",
+        "width":  612,
+        "height":  470,
+        "bytes":  91107
+    },
+    {
+        "file":  "public/sources/factory-belting-small.jpg",
+        "width":  480,
+        "height":  369,
+        "bytes":  64642
     }
 ]

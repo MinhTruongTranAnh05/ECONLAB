@@ -86,5 +86,16 @@
   {
     "messageOrder": 10,
     "duplicateOf": "factory-workshop"
+  },
+  {
+    "messageBatch": 2,
+    "messageOrder": 1,
+    "id": "factory-belting",
+    "original": "artwork/sources/factory-belting.png",
+    "width": 612,
+    "height": 470,
+    "bytes": 472186,
+    "sha256": "5025def762942fe284f5b5ab3f20919188569664ee0dea246c2e5082ba508385",
+    "provenance": "Additional image supplied by user in ECONLAB chat; publication and author metadata not independently verified"
   }
 ]

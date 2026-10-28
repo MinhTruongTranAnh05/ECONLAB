@@ -1,0 +1,90 @@
+[
+  {
+    "messageOrder": 1,
+    "id": "bank-crowd-detail",
+    "original": "artwork/sources/bank-crowd-detail.png",
+    "width": 640,
+    "height": 360,
+    "bytes": 260614,
+    "sha256": "482bb3707a9f6316589624ff20a9a0a512cd859d892f76c76996485f29bc43b7",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 2,
+    "id": "bank-crowd-page",
+    "original": "artwork/sources/bank-crowd-page.png",
+    "width": 1185,
+    "height": 1536,
+    "bytes": 1599332,
+    "sha256": "ee523c532712dcdf2a787f0c12dc5d1f5debdab0808c57a4806e7cf5eaaf1a8d",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 3,
+    "id": "gallery-society",
+    "original": "artwork/sources/gallery-society.png",
+    "width": 2200,
+    "height": 1155,
+    "bytes": 3219003,
+    "sha256": "2f488125f2d9cde792cbd5dc439998a7c3dbd28ea0de334a399673a6d5773f89",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 4,
+    "id": "shipping-clyde",
+    "original": "artwork/sources/shipping-clyde.png",
+    "width": 612,
+    "height": 506,
+    "bytes": 445931,
+    "sha256": "e37816aa0c2ac97aff03e8ccb1f629364b7d590172f28bed9bbfe6ce1439b5bc",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 5,
+    "id": "factory-workshop",
+    "original": "artwork/sources/factory-workshop.png",
+    "width": 612,
+    "height": 350,
+    "bytes": 315453,
+    "sha256": "f35f6260e20692dc269671ee4c83b1203849aac5ac1dfaa4d969667ec79d5b5a",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 6,
+    "id": "historical-assembly",
+    "original": "artwork/sources/historical-assembly.png",
+    "width": 584,
+    "height": 323,
+    "bytes": 428177,
+    "sha256": "15b95ce516066dd94434a7cd36c0d80eec66a21df81f0135fda7bc0bda0a64a3",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 7,
+    "id": "arts-sciences",
+    "original": "artwork/sources/arts-sciences.png",
+    "width": 836,
+    "height": 521,
+    "bytes": 559770,
+    "sha256": "1087b017507ee78a8190722d48704eb3675e80e39f7d88a26e0dd9cbca0a2ac4",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 8,
+    "id": "bank-interior",
+    "original": "artwork/sources/bank-interior.png",
+    "width": 3893,
+    "height": 2784,
+    "bytes": 13968639,
+    "sha256": "a0e307f5500055d25316c68b8cecbcd6c54931e54fa8aa5bee41b91478a4d657",
+    "provenance": "Supplied by user in ECONLAB chat; author, publication and license metadata not independently verified"
+  },
+  {
+    "messageOrder": 9,
+    "duplicateOf": "shipping-clyde"
+  },
+  {
+    "messageOrder": 10,
+    "duplicateOf": "factory-workshop"
+  }
+]

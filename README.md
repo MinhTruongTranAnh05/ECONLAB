@@ -47,6 +47,10 @@ Final website assets are `public/artwork/industry.jpg`, `finance.jpg`, `networks
 
 The previous cover, **Coalbrookdale by Night**, Philip James de Loutherbourg, 1801, remains preserved at `public/coalbrookdale.jpg` and is no longer displayed. Its source is [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Philipp_Jakob_Loutherbourg_d._J._002.jpg), identified there as a public-domain reproduction.
 
+Eight distinct user-supplied source images are also integrated into the lessons and the `#tu-lieu` collection. The ten-image message contained exact duplicates of the port and workshop images; those two duplicates are represented once each. Unchanged original PNG files are preserved in `artwork/sources/`, including the full 2200 px painting and 3893 px bank-interior image. `docs/source-images-manifest.json` records the original dimensions, SHA-256 hashes, supplied ordering and duplicate mappings. Responsive JPEGs under `public/sources/` preserve the source composition and visible markings, with a 1600 px maximum width and 480 px small variants, never upscaled. Export metadata is recorded in `docs/source-images-exports.json`.
+
+The workshop and port images accompany section 4.1; bank interiors and crowd scenes accompany section 4.2. All eight appear in a separate source collection with a keyboard-accessible enlargement dialog. Their captions describe visible content without asserting unverified artists, dates, events or theoretical conclusions. These images are labeled as user-provided sources and are distinguished from the AI illustrations. Names of specific works, publication provenance and historical identification remain pending source confirmation.
+
 The requested [MLN111 interaction reference](https://github.com/letuankiet-04/MLN111) was inspected (HTML, CSS and JavaScript). Its one-time reveals, viewport counters, section tracking, smooth anchors, search and quiz patterns informed the interaction approach. ECONLAB's implementation, styling and academic content are independently written; the source is not imported or reused.
 
 ## Code map
@@ -57,6 +61,7 @@ The requested [MLN111 interaction reference](https://github.com/letuankiet-04/ML
 - `src/store.ts`: validated local progress and persistence.
 - `src/motion.tsx`: reusable reveal and counter primitives.
 - `src/Artwork.tsx` and `src/artwork.css`: original illustration metadata, responsive image components and editorial figure styling.
+- `src/SourceGallery.tsx` and `src/sources.css`: supplied source-image collection, inline lesson figures, and accessible enlargement viewer.
 - `src/styles.css`: editorial design and responsive/reduced-motion rules.
 - `tests/`: component workflow and storage recovery tests.
 

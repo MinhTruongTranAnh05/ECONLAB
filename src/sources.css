@@ -1,0 +1,57 @@
+.source-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 26px; margin: 30px 0 38px; }
+.source-gallery-single { grid-template-columns: minmax(0, 1fr); }
+.source-figure { margin: 0; min-width: 0; }
+.source-image-button { display: block; position: relative; width: 100%; padding: 0; border: 1px solid var(--border); background: #ece7de; overflow: hidden; }
+.source-image-button img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; }
+.source-gallery-single .source-image-button img { aspect-ratio: auto; max-height: 620px; }
+.source-image-button:hover { border-color: var(--burgundy); }
+.source-zoom { display: flex; align-items: center; gap: 8px; position: absolute; bottom: 12px; right: 12px; background: var(--paper); color: var(--burgundy); padding: 7px 11px; border: 1px solid var(--border); font-family: Inter, sans-serif; font-size: 9px; box-shadow: 0 3px 12px #261c1b12; }
+.source-figure figcaption { padding: 16px 0 18px; border-bottom: 1px solid var(--border); }
+.source-figure figcaption .eyebrow { font-size: 7px; letter-spacing: 1.2px; text-transform: uppercase; }
+.source-figure h3 { font-size: 23px; line-height: 1.45; margin: 7px 0 10px; }
+.source-figure figcaption p { font-size: 11px; line-height: 2; color: #6b5a4b; }
+.source-figure figcaption small { display: block; font-size: 8px; color: var(--muted-text); margin-top: 11px; }
+.sources-section { border-top: 1px solid var(--border); }
+.sources-section-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 55px; }
+.sources-section-heading h2 { font-size: 43px; letter-spacing: -1px; margin-top: 16px; }
+.sources-section-heading h2 em { color: var(--burgundy); }
+.sources-section-heading > p { font-size: 12px; line-height: 2; color: var(--muted-text); max-width: 390px; }
+.sources-section .source-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 36px; }
+.sources-section .source-figure h3 { font-size: 21px; }
+.source-context-heading { margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--border); }
+.source-context-heading h3 { font-size: 25px; margin: 8px 0; }
+.source-context-heading > p { font-size: 12px; color: var(--muted-text); line-height: 2; }
+.source-viewer { width: min(1180px, calc(100% - 32px)); max-height: 92svh; padding: 0; border: 1px solid var(--border); background: var(--paper); color: var(--espresso); box-shadow: 0 20px 100px #0005; }
+.source-viewer::backdrop { background: #261c1bd9; }
+.source-viewer-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 9px 20px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--paper); z-index: 1; }
+.source-viewer-toolbar > span { font-family: Inter, sans-serif; letter-spacing: 1.3px; font-size: 8px; color: var(--burgundy); }
+.source-viewer-image { display: block; width: 100%; height: auto; max-height: 65svh; object-fit: contain; background: #e6e0d5; }
+.source-viewer-caption { padding: 21px 26px; }
+.source-viewer-caption h3 { font-size: 26px; }
+.source-viewer-caption p { font-size: 12px; color: var(--muted-text); margin-top: 12px; line-height: 1.9; }
+.source-viewer-caption small { display: block; font-size: 9px; margin-top: 12px; color: var(--burgundy); }
+.source-viewer-controls { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 0 26px 22px; }
+.source-viewer-controls > span { font-size: 9px; color: var(--muted-text); }
+.source-viewer-controls .button { font-size: 10px; }
+@media (max-width: 900px) {
+  .sources-section .source-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sources-section-heading { gap: 30px; }
+  .sources-section-heading h2 { font-size: 36px; }
+}
+@media (max-width: 600px) {
+  .source-gallery, .sources-section .source-gallery { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+  .source-image-button img { aspect-ratio: auto; max-height: 430px; }
+  .source-figure h3, .sources-section .source-figure h3 { font-size: 23px; }
+  .source-figure figcaption p { font-size: 12px; }
+  .source-figure figcaption .eyebrow { font-size: 7px; }
+  .sources-section-heading { display: block; }
+  .sources-section-heading h2 { font-size: 36px; }
+  .sources-section-heading > p { font-size: 12px; margin-top: 22px; }
+  .source-viewer-caption { padding: 18px; }
+  .source-viewer-caption h3 { font-size: 23px; }
+  .source-viewer-caption p { font-size: 11px; }
+  .source-viewer-caption small { font-size: 8px; }
+  .source-viewer-controls { padding: 0 18px 18px; gap: 12px; }
+  .source-viewer-controls > span { display: none; }
+  .source-viewer-controls .button { font-size: 9px; padding-inline: 13px; }
+}

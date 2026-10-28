@@ -1,0 +1,98 @@
+﻿[
+    {
+        "file":  "public/sources/arts-sciences.jpg",
+        "width":  836,
+        "height":  521,
+        "bytes":  172129
+    },
+    {
+        "file":  "public/sources/arts-sciences-small.jpg",
+        "width":  480,
+        "height":  299,
+        "bytes":  59463
+    },
+    {
+        "file":  "public/sources/bank-crowd-detail.jpg",
+        "width":  640,
+        "height":  360,
+        "bytes":  64799
+    },
+    {
+        "file":  "public/sources/bank-crowd-detail-small.jpg",
+        "width":  480,
+        "height":  270,
+        "bytes":  42565
+    },
+    {
+        "file":  "public/sources/bank-crowd-page.jpg",
+        "width":  1185,
+        "height":  1536,
+        "bytes":  300824
+    },
+    {
+        "file":  "public/sources/bank-crowd-page-small.jpg",
+        "width":  480,
+        "height":  622,
+        "bytes":  77479
+    },
+    {
+        "file":  "public/sources/bank-interior.jpg",
+        "width":  1600,
+        "height":  1144,
+        "bytes":  789013
+    },
+    {
+        "file":  "public/sources/bank-interior-small.jpg",
+        "width":  480,
+        "height":  343,
+        "bytes":  62994
+    },
+    {
+        "file":  "public/sources/factory-workshop.jpg",
+        "width":  612,
+        "height":  350,
+        "bytes":  103322
+    },
+    {
+        "file":  "public/sources/factory-workshop-small.jpg",
+        "width":  480,
+        "height":  275,
+        "bytes":  63056
+    },
+    {
+        "file":  "public/sources/gallery-society.jpg",
+        "width":  1600,
+        "height":  840,
+        "bytes":  298507
+    },
+    {
+        "file":  "public/sources/gallery-society-small.jpg",
+        "width":  480,
+        "height":  252,
+        "bytes":  39612
+    },
+    {
+        "file":  "public/sources/historical-assembly.jpg",
+        "width":  584,
+        "height":  323,
+        "bytes":  103098
+    },
+    {
+        "file":  "public/sources/historical-assembly-small.jpg",
+        "width":  480,
+        "height":  265,
+        "bytes":  61828
+    },
+    {
+        "file":  "public/sources/shipping-clyde.jpg",
+        "width":  612,
+        "height":  506,
+        "bytes":  173453
+    },
+    {
+        "file":  "public/sources/shipping-clyde-small.jpg",
+        "width":  480,
+        "height":  397,
+        "bytes":  100143
+    }
+]

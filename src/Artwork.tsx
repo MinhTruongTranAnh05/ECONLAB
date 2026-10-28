@@ -75,7 +75,6 @@ export function EditorialArtwork({ name, className = '' }: { name: ArtworkKey; c
         <div className="artwork-frame"><ArtworkImage name={name}/></div>
         <figcaption>
           <div><strong>{image.title}</strong><span>{image.caption}</span></div>
-          <small>ECONLAB · MINH HỌA AI</small>
         </figcaption>
       </figure>
     </Reveal>

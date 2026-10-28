@@ -1,0 +1,50 @@
+﻿[
+    {
+        "file":  "public/artwork/industry.jpg",
+        "width":  1024,
+        "height":  1536,
+        "bytes":  629995
+    },
+    {
+        "file":  "public/artwork/industry-small.jpg",
+        "width":  640,
+        "height":  960,
+        "bytes":  240537
+    },
+    {
+        "file":  "public/artwork/finance.jpg",
+        "width":  1280,
+        "height":  853,
+        "bytes":  387309
+    },
+    {
+        "file":  "public/artwork/finance-small.jpg",
+        "width":  640,
+        "height":  427,
+        "bytes":  96725
+    },
+    {
+        "file":  "public/artwork/networks.jpg",
+        "width":  1280,
+        "height":  853,
+        "bytes":  397999
+    },
+    {
+        "file":  "public/artwork/networks-small.jpg",
+        "width":  640,
+        "height":  427,
+        "bytes":  102543
+    },
+    {
+        "file":  "public/artwork/vietnam.jpg",
+        "width":  1280,
+        "height":  720,
+        "bytes":  367592
+    },
+    {
+        "file":  "public/artwork/vietnam-small.jpg",
+        "width":  640,
+        "height":  360,
+        "bytes":  98866
+    }
+]

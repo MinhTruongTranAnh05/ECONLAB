@@ -159,8 +159,9 @@
 .chapter-opening-02 .chapter-opening-edge, .chapter-opening-03 .chapter-opening-edge { color: #c4ac8a; border-color: #ffffff2a; }
 .chapter-opening-03 .chapter-opening-number { font-size: 76px; }
 
-/* Four normal-flow text steps drive a sticky, illustrative economic diagram. */
-.formation-story { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 28px; position: relative; margin: 24px 0 32px; scroll-margin-top: 110px; }
+/* Only the reading pane scrolls when a stage is selected; the diagram stays in place. */
+.formation-story { --formation-panel-height: min(680px, calc(100svh - 136px)); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 28px; position: relative; margin: 24px 0 32px; scroll-margin-top: 110px; }
+.formation-steps { height: var(--formation-panel-height); overflow-y: auto; scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: var(--antique-gold) transparent; padding-inline: 6px; margin-inline: -6px; }
 .formation-step { padding: 22px 0; border-top: 1px solid var(--border); scroll-margin-top: 115px; }
 .formation-step:last-child { padding-bottom: 20px; }
 .formation-step h3 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.45; }
@@ -171,7 +172,8 @@
 .formation-step-number { font-size: 31px; color: var(--antique-gold); }
 .formation-step p { color: var(--reading-ink); font-size: var(--supporting-size); line-height: 1.85; margin-top: 14px; }
 .formation-step-connector { display: block; color: var(--antique-gold); margin-top: 14px; }
-.formation-visual { position: sticky; top: 112px; align-self: start; background: var(--espresso); color: var(--paper); padding: 24px 25px 20px; border-top: 3px solid var(--antique-gold); }
+.formation-visual { position: sticky; top: 112px; align-self: start; height: var(--formation-panel-height); display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto auto; background: var(--espresso); color: var(--paper); padding: 24px 25px 20px; border-top: 3px solid var(--antique-gold); }
+.formation-visual > .formation-svg { height: 100%; min-height: 0; }
 .formation-visual-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .formation-visual-top .eyebrow { font-size: 7px; color: #d9bb8d; letter-spacing: 1.2px; }
 .formation-visual-top > span:last-child { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; color: var(--antique-gold); white-space: nowrap; }
@@ -190,7 +192,7 @@
 .diagram-axis-label { fill: #d9bb8d; font-family: Inter, sans-serif; font-size: 9px; letter-spacing: 1.8px; }
 .formation-visual .concept-explanation { display: block; padding: 8px 0 0; }
 .formation-visual .concept-explanation .eyebrow { color: var(--antique-gold); font-size: 7px; }
-.formation-visual .concept-explanation h3 { font-size: 23px; margin: 7px 0 14px; line-height: 1.4; }
+.formation-visual .concept-explanation h3 { font-size: 23px; min-height: 2.8em; margin: 7px 0 14px; line-height: 1.4; }
 .formation-controls { display: flex; gap: 8px; }
 .formation-controls button { background: transparent; color: #b6a38b; border: 0; border-top: 2px solid #ffffff26; flex: 1; padding: 10px 5px; font-family: Inter, sans-serif; font-size: 10px; text-align: left; }
 .formation-controls button.is-active { border-color: var(--antique-gold); color: #ead0aa; }
@@ -419,6 +421,7 @@
 }
 @media (max-width: 760px) {
   .formation-story { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .formation-steps { height: auto; overflow: visible; scrollbar-gutter: auto; padding-inline: 0; margin-inline: 0; }
   .formation-visual { display: none; }
   .formation-mobile-diagram { display: block; background: var(--espresso); margin-top: 16px; padding: 10px 20px; }
   .formation-mobile-diagram svg { max-width: 240px; margin-inline: auto; }

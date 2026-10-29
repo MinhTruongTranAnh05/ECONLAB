@@ -20,25 +20,52 @@ describe('Editorial learning interactions', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Xem giai đoạn 4' }));
     expect(screen.getByRole('button', { name: /04.*Tổ chức độc quyền/ }).getAttribute('aria-pressed')).toBe('true');
     expect(document.querySelector('.concept-explanation h3')?.textContent).toBe(stages[3].title);
-    expect(vi.mocked(Element.prototype.scrollIntoView).mock.contexts.at(-1)).toBe(document.querySelector('[data-step="3"]'));
+    expect(vi.mocked(Element.prototype.scrollIntoView).mock.contexts).not.toContain(document.querySelector('[data-step="3"]'));
   });
 
-  it('updates the sticky diagram from observed reading steps', () => {
-    const observers: { callback: IntersectionObserverCallback; targets: Element[] }[] = [];
-    class Observer {
-      targets: Element[] = [];
-      constructor(callback: IntersectionObserverCallback) { observers.push({ callback, targets: this.targets }); }
-      observe(element: Element) { this.targets.push(element); }
-      unobserve() {}
-      disconnect() {}
-    }
-    vi.stubGlobal('IntersectionObserver', Observer);
+  it('scrolls only the reading pane and keeps the selected diagram during smooth scrolling', () => {
     render(<FormationStory/>);
-    const observer = observers.find(item => item.targets.some(target => target.hasAttribute('data-step')))!;
-    const target = document.querySelector('[data-step="2"]')!;
-    act(() => observer.callback([{ target, isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver));
+    const pane = screen.getByRole('region', { name: 'Các giai đoạn hình thành độc quyền' });
+    const step = document.querySelector('[data-step="3"]')!;
+    vi.spyOn(pane, 'getBoundingClientRect').mockReturnValue({ top: 100 } as DOMRect);
+    vi.spyOn(step, 'getBoundingClientRect').mockReturnValue({ top: 500 } as DOMRect);
+    const scrollPage = vi.mocked(window.scrollTo).mock.calls.length;
+    fireEvent.click(screen.getByRole('button', { name: 'Xem giai đoạn 4' }));
+    expect(pane.scrollTo).toHaveBeenLastCalledWith({ top: 400, behavior: 'smooth' });
+    fireEvent.scroll(pane);
+    expect(document.querySelector('.concept-explanation h3')?.textContent).toBe(stages[3].title);
+    expect(vi.mocked(window.scrollTo).mock.calls).toHaveLength(scrollPage);
+  });
+
+  it('updates the diagram when the reader manually scrolls the left pane', () => {
+    render(<FormationStory/>);
+    const pane = screen.getByRole('region', { name: 'Các giai đoạn hình thành độc quyền' });
+    Object.defineProperty(pane, 'clientHeight', { value: 600 });
+    vi.spyOn(pane, 'getBoundingClientRect').mockReturnValue({ top: 100 } as DOMRect);
+    document.querySelectorAll('.formation-step').forEach((step, index) => {
+      vi.spyOn(step, 'getBoundingClientRect').mockReturnValue({ top: index * 200 - 300, bottom: index < 2 ? 200 : 400 } as DOMRect);
+    });
+    fireEvent.click(screen.getByRole('button', { name: 'Xem giai đoạn 4' }));
+    fireEvent.wheel(pane);
+    fireEvent.scroll(pane);
     expect(document.querySelector('.concept-explanation h3')?.textContent).toBe(stages[2].title);
     expect(screen.getByRole('button', { name: 'Xem giai đoạn 3' }).getAttribute('aria-pressed')).toBe('true');
+    Object.defineProperty(pane, 'scrollHeight', { value: 900 });
+    pane.scrollTop = 300;
+    fireEvent.scroll(pane);
+    expect(document.querySelector('.concept-explanation h3')?.textContent).toBe(stages[3].title);
+  });
+
+  it('does not scroll the page or the pane when selecting a mobile stage', () => {
+    render(<FormationStory/>);
+    const pane = document.querySelector('.formation-steps')!;
+    const paneScrolls = vi.mocked(pane.scrollTo).mock.calls.length;
+    const pageScrolls = vi.mocked(window.scrollTo).mock.calls.length;
+    vi.mocked(window.matchMedia).mockImplementationOnce(() => ({ matches: true } as MediaQueryList));
+    fireEvent.click(screen.getByRole('button', { name: /02.*Tích tụ/ }));
+    expect(vi.mocked(pane.scrollTo).mock.calls).toHaveLength(paneScrolls);
+    expect(vi.mocked(window.scrollTo).mock.calls).toHaveLength(pageScrolls);
+    expect(document.querySelector('.concept-explanation h3')?.textContent).toBe(stages[1].title);
   });
 
   it('lets readers select each characteristic and use arrow keys and Home/End', () => {

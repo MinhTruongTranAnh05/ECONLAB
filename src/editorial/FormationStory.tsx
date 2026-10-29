@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { ArrowDown, ArrowRight } from 'lucide-react';
 import { stages } from '../data';
 import { Reveal } from '../motion';
@@ -27,26 +27,38 @@ function FormationDiagram({ active }: { active: number }) {
 
 export function FormationStory() {
   const [active, setActive] = useState(0);
+  const readingPane = useRef<HTMLDivElement>(null);
   const steps = useRef<(HTMLElement | null)[]>([]);
+  const explicitSelection = useRef(false);
 
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) setActive(Number((entry.target as HTMLElement).dataset.step));
-      }
-    }, { rootMargin: '-25% 0px -40% 0px', threshold: 0 });
-    steps.current.forEach(node => { if (node) observer.observe(node); });
-    return () => observer.disconnect();
-  }, []);
+  function syncReadingStep() {
+    const pane = readingPane.current;
+    if (!pane || explicitSelection.current || matchMedia('(max-width: 760px)').matches) return;
+    if (pane.scrollTop > 0 && pane.scrollTop + pane.clientHeight >= pane.scrollHeight - 1) {
+      setActive(stages.length - 1);
+      return;
+    }
+    const readingLine = pane.getBoundingClientRect().top + pane.clientHeight * .25;
+    const index = steps.current.findIndex(step => step && step.getBoundingClientRect().bottom > readingLine);
+    if (index >= 0) setActive(index);
+  }
+
+  function resumeReadingSync() {
+    explicitSelection.current = false;
+  }
 
   function select(index: number) {
     setActive(index);
-    steps.current[index]?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
+    const pane = readingPane.current;
+    const step = steps.current[index];
+    if (!pane || !step || matchMedia('(max-width: 760px)').matches) return;
+    // Scroll this pane directly: scrollIntoView would also move the page and its diagram.
+    explicitSelection.current = true;
+    pane.scrollTo({ top: pane.scrollTop + step.getBoundingClientRect().top - pane.getBoundingClientRect().top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   }
 
   return <div id="formation-story" className="formation-story">
-    <div className="formation-steps">
+    <div className="formation-steps" ref={readingPane} role="region" aria-label="Các giai đoạn hình thành độc quyền" tabIndex={0} onScroll={syncReadingStep} onWheel={resumeReadingSync} onTouchStart={resumeReadingSync} onPointerDown={resumeReadingSync} onKeyDown={resumeReadingSync}>
       {stages.map((stage, index) => <article key={stage.title} data-step={index} ref={node => { steps.current[index] = node; }} className={`formation-step ${active === index ? 'is-active' : ''}`}>
         <Reveal delay={60}>
           <h3><button onClick={() => select(index)} aria-pressed={active === index}><span className="formation-step-number">0{index + 1}</span><span>{stage.title}</span><ArrowRight size={18}/></button></h3>

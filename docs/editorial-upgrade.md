@@ -13,6 +13,12 @@ Implemented in the existing React application, retaining the warm ivory, burgund
 - More expressive Vietnamese serif typography, burgundy statement blocks, a compact archive grid, refined navigation, a compact scrolled header and active chapter subcontents with reading progress.
 - A calmer revision design, improved flashcards and answer feedback, meaningful number transitions, topic-specific exam accuracy, recommended lesson links and a filter for incorrect/unanswered exam questions.
 
+## Reading typography
+
+- Main lesson text is 17px on desktop and 16px on mobile; supporting paragraphs use 15px and 14px respectively. Image captions and source notes use 13px.
+- Main text uses a darker brown (#392d26), with clearer secondary text (#60534b). Dark chapter and application panels use lighter text to preserve contrast.
+- Existing compact section spacing and replayable scroll motion remain unchanged. Typography changes were checked with the production build; browser visual QA remains unavailable.
+
 ## Preservation
 
 - No new runtime dependencies.

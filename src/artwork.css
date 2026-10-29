@@ -9,14 +9,14 @@
 .editorial-artwork.artwork-industry img { aspect-ratio: 2.15; object-fit: cover; object-position: center 43%; }
 .editorial-artwork figcaption { display: flex; align-items: start; justify-content: space-between; gap: 22px; padding: 15px 0; border-bottom: 1px solid var(--border); }
 .editorial-artwork figcaption strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 19px; line-height: 1.5; }
-.editorial-artwork figcaption span { display: block; font-size: 10px; line-height: 1.9; margin-top: 5px; color: var(--muted-text); }
+.editorial-artwork figcaption span { display: block; font-size: var(--caption-size); line-height: 1.9; margin-top: 5px; color: var(--muted-text); }
 .application-artwork { grid-column: 1 / -1; min-width: 0; }
 .application-artwork .editorial-artwork { margin: 0; }
 .application-artwork .artwork-frame { border-color: #c49a5655; }
 .application-artwork img { aspect-ratio: 16 / 7; object-fit: cover; object-position: center 66%; }
 .application-artwork figcaption { border-color: #ffffff2a; }
 .application-artwork figcaption strong { color: var(--paper); }
-.application-artwork figcaption span { color: #c4b4a4; }
+.application-artwork figcaption span { color: #e0d2c2; }
 @media (max-width: 600px) {
   .chapter-card .card-art { grid-column: 1 / -1; grid-row: auto; margin-top: 0; margin-bottom: 20px; aspect-ratio: 1.9; }
   .chapter-card .card-number { grid-row: 3 / 5; margin-top: 3px; }
@@ -25,7 +25,7 @@
   .editorial-artwork.artwork-industry img { aspect-ratio: 1.5; }
   .editorial-artwork figcaption { display: block; padding-block: 13px; }
   .editorial-artwork figcaption strong { font-size: 18px; }
-  .editorial-artwork figcaption span { font-size: 10px; }
+  .editorial-artwork figcaption span { font-size: var(--caption-size); }
   .application-artwork { margin-top: 30px; }
   .application-artwork img { aspect-ratio: 1.55; object-position: 45% center; }
 }

@@ -10,7 +10,7 @@ Implemented in the existing React application, retaining the warm ivory, burgund
 - A four-step formation story with normal-flow explanations, an observed active step and a sticky SVG visualization on desktop. Mobile presents all four text/diagram pairs vertically. The simplified diagram remains explicitly illustrative.
 - Five-characteristic interactive concept map with animated connections, existing theory text, contextual art, terminology and takeaways. Arrow keys, Home/End and previous/next buttons navigate it. Original individual disclosures remain available below.
 - Contextual definition popovers drawn from existing lesson text, with lesson references, Escape dismissal, outside-click dismissal and focus restoration.
-- More expressive Vietnamese serif typography, burgundy statement blocks, asymmetric archive spreads, refined navigation, a compact scrolled header and active chapter subcontents with reading progress.
+- More expressive Vietnamese serif typography, burgundy statement blocks, a compact archive grid, refined navigation, a compact scrolled header and active chapter subcontents with reading progress.
 - A calmer revision design, improved flashcards and answer feedback, meaningful number transitions, topic-specific exam accuracy, recommended lesson links and a filter for incorrect/unanswered exam questions.
 
 ## Preservation
@@ -23,6 +23,14 @@ Implemented in the existing React application, retaining the warm ivory, burgund
 - Reduced-motion support keeps educational content visible. Touch devices do not acquire sticky hover states. Keyboard controls retain visible focus.
 
 ## Validation
+
+### Reading-density correction
+
+- Removed the 310px minimum height per formation step and the reserved title height in the sticky diagram. Steps now follow their actual text length; mobile diagrams are capped at 240px wide.
+- Reduced chapter-opening typography, artwork proportions, section padding, subsection margins and the gaps around application and revision sections. Body text stays at 14–15px with a 1.85 line height in the main reading columns.
+- Replaced oversized archive spans with three desktop columns, two tablet columns and one mobile column. Removed staggered image offsets and capped inline source previews; every image still opens at full size.
+- Reveal observation now starts 120px before viewport entry. Shorter transitions and partially visible starting states prevent fully blank reserved blocks while preserving replay in both scroll directions and reduced-motion behavior.
+- The correction passed all 22 existing workflow tests and the production build. Browser initialization was retried but the trusted Node process exited, so desktop/mobile visual QA remains unverified.
 
 - TypeScript checking and Vite production build: passed.
 - 22 component workflow tests: passed, including study persistence, quizzes, timers, exam submission/review, source viewer, observed diagram steps, knowledge-map keyboard navigation, popovers, subcontents, topic results, replayable headings and cover re-entry.

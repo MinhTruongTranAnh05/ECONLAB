@@ -12,7 +12,8 @@ export function Reveal({ children, delay = 0, className = '', variant = 'rise' }
       for (const entry of entries) {
         node.classList.toggle('revealed', preference.matches || entry.isIntersecting);
       }
-    }, { threshold: [0, 0.08] });
+    // Begin before entry so fast scrolling never exposes a hidden content block.
+    }, { rootMargin: '120px 0px', threshold: 0 });
     const onPreferenceChange = () => {
       if (preference.matches) node.classList.add('revealed');
       else { observer.unobserve(node); observer.observe(node); }

@@ -24,7 +24,7 @@ The production output is `dist/`. Serve it through HTTP. Vite's relative base su
 ## Experience
 
 - Editorial cover, three academic chapters, interactive explanatory flow, five expandable characteristics, historical/contemporary comparisons, and a Vietnam application essay.
-- One-time IntersectionObserver reveals, staggered cards, animated counter, transform-based reading progress, subtle cover parallax, active table of contents, hash-based navigation and browser history.
+- Replayable IntersectionObserver reveals in both scroll directions, staggered cards, animated counter, transform-based reading progress, subtle cover parallax, active table of contents, hash-based navigation and browser history. A reveal resets only after leaving the viewport; visible content is not repeatedly interrupted while being read.
 - Separate revision center: dashboard, 13 flashcards, 12 explained practice questions, incorrect-answer review, essay draft and checklists, oral preparation/answer timers, configurable randomized mock exams with automatic submission, answer review and score history.
 - Progress is stored under `econlab-progress-v1` in LocalStorage. The dashboard offers an explicit two-step reset. Data stays in the current browser; there is no synchronization across devices. Storage failures show a notice. Exam sessions are temporary: remain on the exam tab until submitting; only submitted results persist.
 - Keyboard controls, native disclosure widgets and modal search, Vietnamese search with or without accents, responsive navigation, reduced-motion support.
@@ -66,6 +66,13 @@ The requested [MLN111 interaction reference](https://github.com/letuankiet-04/ML
 - `src/SourceGallery.tsx` and `src/sources.css`: supplied source-image collection, inline lesson figures, and accessible enlargement viewer.
 - `src/image-interactions.css`: shared pointer-hover and keyboard-focus image exposure effects.
 - `src/styles.css`: editorial design and responsive/reduced-motion rules.
+- `src/editorial/`: cinematic cover, varied chapter openings, sticky formation story, five-characteristic knowledge map, contextual definitions, reading contents, exam topic insights and the premium typography/motion system.
 - `tests/`: component workflow and storage recovery tests.
+
+## Editorial upgrade
+
+The current upgrade preserves the academic source data and stored progress format while refining the visual presentation. It adds masked cover and chapter heading reveals; ivory, espresso and burgundy chapter introductions; a normal-scroll formation story with a sticky SVG diagram and stacked mobile fallback; a five-concept interactive map with keyboard navigation; contextual definition popovers using existing lesson text; reading progress and active subcontents; and a quieter revision layout with topic-specific exam results and an incorrect/unanswered review filter. The existing characteristic disclosures remain available for continuous reading. All nine source images, their enlargement viewer and the image hover-brightness effect are retained. No new runtime dependencies were introduced.
+
+At the user's request, viewport reveals and the cover animation rearm when their content leaves the viewport and replay on return, including when scrolling upward. Formation diagrams track the current reading step in both directions. Reduced-motion preferences keep the educational content visible and disable nonessential transitions. The previously removed issue label and AI illustration badges remain absent from the interface.
 
 Browser visual QA depends on an available browser-control session. Component tests validate behavior in JSDOM, which does not validate actual CSS layout, rendering, parallax performance or responsive overflow.

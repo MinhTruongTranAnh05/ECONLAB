@@ -85,6 +85,8 @@ describe('Revision workflows', () => {
     expect(state().exams[0]).toMatchObject({ score: 1, total: 3 });
     expect(screen.getByText('Đối chiếu từng câu trả lời')).toBeTruthy();
     expect(document.querySelectorAll('.answer-review')).toHaveLength(3);
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Chỉ xem câu sai hoặc bỏ trống' }));
+    expect(document.querySelectorAll('.answer-review')).toHaveLength(2);
   });
   it('automatically submits an exam when the timer expires', () => {
     vi.useFakeTimers(); render(<Harness tab="exam"/>);

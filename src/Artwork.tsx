@@ -70,7 +70,7 @@ export function ArtworkImage({
 export function EditorialArtwork({ name, className = '' }: { name: ArtworkKey; className?: string }) {
   const image = artwork[name];
   return (
-    <Reveal className={`editorial-artwork-reveal ${className}`}>
+    <Reveal variant="image" className={`editorial-artwork-reveal ${className}`}>
       <figure className={`editorial-artwork artwork-${name}`}>
         <div className="artwork-frame"><ArtworkImage name={name}/></div>
         <figcaption>

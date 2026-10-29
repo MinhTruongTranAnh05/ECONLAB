@@ -79,7 +79,7 @@ export function SourceGallery({ images = allImages, single = false }: { images?:
     <div className={`source-gallery ${single ? 'source-gallery-single' : ''}`}>
       {images.map((id, index) => {
         const image = sourceImages[id];
-        return <Reveal key={id} delay={(index % 3) * 90}>
+        return <Reveal key={id} delay={(index % 3) * 90} variant="image">
           <figure className="source-figure">
             <button className="source-image-button" aria-label={`Phóng to: ${image.title}`} onClick={event => { opener.current = event.currentTarget; setSelected(index); }}>
               <img src={`./sources/${id}.jpg`} srcSet={`./sources/${id}-small.jpg 480w, ./sources/${id}.jpg ${image.width}w`} sizes={single ? '(max-width: 900px) 86vw, 860px' : '(max-width: 600px) 86vw, (max-width: 900px) 43vw, 400px'} width={image.width} height={image.height} alt={image.alt} loading="lazy" decoding="async"/>

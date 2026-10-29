@@ -5,4 +5,5 @@ import './styles.css';
 import './artwork.css';
 import './sources.css';
 import './image-interactions.css';
+import './editorial/premium.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
